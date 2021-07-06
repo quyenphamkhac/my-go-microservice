@@ -3,10 +3,10 @@ package usersvc
 import (
 	"context"
 
-	"github.com/quyenphamkhac/skoppi/services/usersvc/entites"
+	"github.com/quyenphamkhac/skoppi/services/usersvc/entities"
 )
 
 type UserService interface {
-	GetById(ctx context.Context, id string) (*entites.User, error)
-	GetAll(ctx context.Context, search string) ([]entites.User, error)
+	GetById(ctx context.Context, id string) (*entities.User, error)
+	GetAll(ctx context.Context, search string) ([]entities.User, error)
 }
