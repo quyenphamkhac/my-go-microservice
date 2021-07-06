@@ -1,4 +1,4 @@
-package mock_ds
+package datasources
 
 import (
 	"context"
@@ -13,7 +13,10 @@ func NewMockDatasource() *mockDatasource {
 }
 
 func (m *mockDatasource) GetUserById(ctx context.Context, id string) (*entities.User, error) {
-	return &entities.User{}, nil
+	return &entities.User{
+		FirstName: "Pham Khac",
+		LastName:  "Quyen",
+	}, nil
 }
 
 func (m *mockDatasource) GetUsers(ctx context.Context, search string) ([]entities.User, error) {
