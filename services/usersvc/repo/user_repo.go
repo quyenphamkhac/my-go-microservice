@@ -7,6 +7,6 @@ import (
 )
 
 type UserRepo interface {
-	GetUserById(ctx context.Context, id string) (*entites.User, error)
-	GetUsers(ctx context.Context) ([]entites.User, error)
+	GetById(ctx context.Context, id string) (*entites.User, error)
+	GetAll(ctx context.Context, search string) ([]entites.User, error)
 }

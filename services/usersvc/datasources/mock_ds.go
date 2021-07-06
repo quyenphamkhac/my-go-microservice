@@ -12,10 +12,10 @@ func NewMockDatasource() *mockDatasource {
 	return &mockDatasource{}
 }
 
-func (m *mockDatasource) GetUserById(ctx context.Context, id string) (*entites.User, error) {
+func (m *mockDatasource) GetById(ctx context.Context, id string) (*entites.User, error) {
 	return &entites.User{}, nil
 }
 
-func (m *mockDatasource) GetUsers(ctx context.Context) ([]entites.User, error) {
+func (m *mockDatasource) GetAll(ctx context.Context, search string) ([]entites.User, error) {
 	return []entites.User{}, nil
 }
