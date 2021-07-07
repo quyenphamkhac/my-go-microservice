@@ -3,7 +3,7 @@ package usersvc
 import (
 	"context"
 
-	"github.com/quyenphamkhac/skoppi/services/usersvc/entities"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc/entities"
 )
 
 type UserService interface {

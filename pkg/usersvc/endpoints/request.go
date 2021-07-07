@@ -1,6 +1,6 @@
 package endpoints
 
-import "github.com/quyenphamkhac/skoppi/services/usersvc/entities"
+import "github.com/quyenphamkhac/skoppi/pkg/usersvc/entities"
 
 type GetByIdRequest struct {
 	ID string `json:"id"`

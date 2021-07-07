@@ -5,9 +5,9 @@ import (
 
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
-	"github.com/quyenphamkhac/skoppi/services/usersvc"
-	"github.com/quyenphamkhac/skoppi/services/usersvc/entities"
-	"github.com/quyenphamkhac/skoppi/services/usersvc/repo"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc/entities"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc/repo"
 )
 
 type interactor struct {

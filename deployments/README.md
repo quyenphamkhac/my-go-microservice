@@ -1,2 +1,2 @@
 # skoppi deployments
-services deployment
+pkg deployment

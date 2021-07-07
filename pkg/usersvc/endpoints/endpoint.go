@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/go-kit/kit/endpoint"
-	"github.com/quyenphamkhac/skoppi/services/usersvc"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc"
 )
 
 type Endpoints struct {

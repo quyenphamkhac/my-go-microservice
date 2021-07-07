@@ -6,10 +6,10 @@ import (
 	"os"
 
 	"github.com/go-kit/kit/log"
-	"github.com/quyenphamkhac/skoppi/services/usersvc/datasources"
-	"github.com/quyenphamkhac/skoppi/services/usersvc/endpoints"
-	"github.com/quyenphamkhac/skoppi/services/usersvc/interactor"
-	"github.com/quyenphamkhac/skoppi/services/usersvc/transports"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc/datasources"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc/endpoints"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc/interactor"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc/transports"
 )
 
 func main() {

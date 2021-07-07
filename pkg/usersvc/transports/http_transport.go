@@ -7,7 +7,7 @@ import (
 
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
-	"github.com/quyenphamkhac/skoppi/services/usersvc/endpoints"
+	"github.com/quyenphamkhac/skoppi/pkg/usersvc/endpoints"
 )
 
 var (
