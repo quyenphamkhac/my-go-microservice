@@ -24,6 +24,7 @@ func NewInteractor(repo repo.UserRepo, logger log.Logger) usersvc.UserService {
 
 func (i *interactor) GetById(ctx context.Context, id string) (*entities.User, error) {
 	logger := log.With(i.logger, "method", "GetById")
+	logger.Log("id", id)
 	user, err := i.repo.GetUserById(ctx, id)
 	if err != nil {
 		level.Error(logger).Log("err", err)

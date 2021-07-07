@@ -1,11 +1,11 @@
 package main
 
 import (
+	"flag"
 	"net/http"
 	"os"
 
 	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
 	"github.com/quyenphamkhac/skoppi/services/usersvc/datasources"
 	"github.com/quyenphamkhac/skoppi/services/usersvc/endpoints"
 	"github.com/quyenphamkhac/skoppi/services/usersvc/interactor"
@@ -13,25 +13,27 @@ import (
 )
 
 func main() {
+	fs := flag.NewFlagSet("usersvc", flag.ExitOnError)
+	var (
+		httpAddr = fs.String("http-addr", ":8081", "HTTP listen address")
+	)
+
 	var logger log.Logger
 	{
 		logger = log.NewLogfmtLogger(os.Stderr)
-		logger = log.NewSyncLogger(logger)
-		logger = level.NewFilter(logger, level.AllowDebug())
-		logger = log.With(logger,
-			"svc", "order",
-			"ts", log.DefaultTimestampUTC,
-			"caller", log.DefaultCaller,
-		)
+		logger = log.With(logger, "ts", log.DefaultTimestampUTC)
+		logger = log.With(logger, "caller", log.DefaultCaller)
 	}
-	ds := datasources.NewMockDatasource()
-	svc := interactor.NewInteractor(ds, logger)
-	enpoints := endpoints.MakeEndpoints(svc)
-	handler := transports.NewHTTPTransport(enpoints)
+	var (
+		datasource  = datasources.NewMockDatasource()
+		svc         = interactor.NewInteractor(datasource, logger)
+		endpoints   = endpoints.MakeEndpoints(svc)
+		httpHandler = transports.NewHTTPTransport(endpoints)
+	)
 
 	httpServer := &http.Server{
-		Addr:    ":8080",
-		Handler: handler,
+		Addr:    *httpAddr,
+		Handler: httpHandler,
 	}
 	httpServer.ListenAndServe()
 }

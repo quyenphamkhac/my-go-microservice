@@ -14,6 +14,13 @@ var (
 	ErrBadRouting = errors.New("router not found")
 )
 
+func NewHTTPServer(addr string, handler http.Handler) (*http.Server, error) {
+	return &http.Server{
+		Addr:    addr,
+		Handler: handler,
+	}, nil
+}
+
 func NewHTTPTransport(svcEndpoints endpoints.Endpoints) http.Handler {
 	var (
 		r = mux.NewRouter()
